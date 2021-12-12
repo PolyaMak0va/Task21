@@ -15,9 +15,9 @@ namespace Task21
  */
     class Program
     {
-        static int m = 0;
-        static int n = 0;
-        static int[,] place = new int[m, n];
+        static int m;
+        static int n;
+        static int[,] place;
 
         static void Main(string[] args)
         {
@@ -54,13 +54,13 @@ namespace Task21
         }
         static void Gardener1()
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < m; i++)
             {
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < n; j++)
                 {
-                    if (place[j, i] == 0)
+                    if (place[i, j] == 0)
                     {
-                        place[j, i] = 1;
+                        place[i, j] = 1;
                         color1();
                         Thread.Sleep(1);
                     }
@@ -74,19 +74,19 @@ namespace Task21
             {
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
-                //Console.Clear();
+                Console.Clear();
             }
         }
         static void Gardener2()
         {
-            for (int i = m - 1; i > 0; i--)
+            for (int i = n - 1; i > 0; i--)
             {
-                for (int j = n - 1; j > 0; j--)
+                for (int j = m - 1; j > 0; j--)
                 {
                     if (place[j, i] == 0)
-                    {                        
-                        place[j, i] = 2;
+                    {
                         color2();
+                        place[j, i] = 2;
                         Thread.Sleep(1);                        
                     }
                 }
@@ -98,7 +98,7 @@ namespace Task21
             {
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Clear();
+                Console.Clear();  
             }
         }
     }
