@@ -45,10 +45,21 @@ namespace Task21
             for (int i = 0; i < m; i++)
             {
                 for (int j = 0; j < n; j++)
-                {
+                {                    
+                    Thread.Sleep(300);
+                    if (place[i, j] == 1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                    }
+                    else if (place[i, j] == 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.BackgroundColor = ConsoleColor.DarkCyan;
+                    }
                     Console.Write(place[i, j] + " ");
                 }
-                Console.WriteLine();
+                Console.WriteLine("\r");
             }
             Console.ReadKey();
         }
@@ -61,21 +72,11 @@ namespace Task21
                     if (place[i, j] == 0)
                     {
                         place[i, j] = 1;
-                        color1();
                         Thread.Sleep(1);
                     }
                 }
             }
-        }
-
-        static void color1()
-        {
-            if (Console.BackgroundColor == ConsoleColor.Black)
-            {
-                Console.BackgroundColor = ConsoleColor.DarkGray;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Clear();
-            }
+            Console.Clear();
         }
         static void Gardener2()
         {
@@ -85,20 +86,10 @@ namespace Task21
                 {
                     if (place[j, i] == 0)
                     {
-                        color2();
                         place[j, i] = 2;
-                        Thread.Sleep(1);                        
+                        Thread.Sleep(1);
                     }
                 }
-            }
-        }
-        static void color2()
-        {
-            if (Console.BackgroundColor == ConsoleColor.Black)
-            {
-                Console.BackgroundColor = ConsoleColor.DarkGray;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Clear();  
             }
         }
     }
